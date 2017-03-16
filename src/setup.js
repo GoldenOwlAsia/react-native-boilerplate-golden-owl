@@ -2,9 +2,8 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 
-import App from './App';
-import { StyleProvider } from 'native-base';
-import configureStore from './configureStore';
+import App from './components/App';
+import configureStore from './lib/configureStore';
 
 function setup():React.Component {
   class Root extends Component {

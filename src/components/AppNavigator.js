@@ -5,14 +5,7 @@ import { connect } from 'react-redux';
 import { Drawer } from 'native-base';
 import { actions } from 'react-native-navigation-redux-helpers';
 
-import { closeDrawer } from './actions/drawer';
-
-import Login from './components/login/';
-import Home from './components/home/';
-import BlankPage from './components/blankPage';
-import SplashPage from './components/splashscreen/';
-import SideBar from './components/sideBar';
-import { statusBarColor } from './themes/base-theme';
+import { closeDrawer } from '../actions/drawer';
 
 import { Examples } from '@shoutem/ui';
 
