@@ -1,23 +1,5 @@
 
-## Native Starter Kit v6.0.0
-
-### A Starter Kit for [React Native](https://facebook.github.io/react-native/docs/getting-started.html) + [NativeBase](http://nativebase.io/) + [Navigation Experimental](https://facebook.github.io/react-native/docs/navigation.html#navigationexperimental) + [Redux](http://redux.js.org) + [CodePush](https://github.com/Microsoft/react-native-code-push) Apps (iOS & Android)
-
-*Brought to you by [StrapMobile](http://strapmobile.com/)*
-
-[![Join the chat at https://gitter.im/start-react/native-starter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/start-react/native-starter?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-
-![Native-Starter-Kit](/Screenshots/logo.png)
-
-
-#### A simple starter project for [React Native](https://facebook.github.io/react-native/docs/getting-started.html) + [NativeBase](http://nativebase.io/) + [Navigation Experimental](https://facebook.github.io/react-native/docs/navigation.html#navigationexperimental) + [Redux](http://redux.js.org) + [CodePush](https://github.com/Microsoft/react-native-code-push) apps on iOS and Android.
-
-No need of reinventing the wheel. To have immediately something to continue building on, it would be best to start from some starter kit for getting React Native - based applications off the ground in a hurry.
-
-This is a starter kit that you can install on the fly to get the basic plumping of React Native with NativeBase, Redux and CodePush.
-
-*Find out more [Free React JS Themes](http://www.startreact.com/) and [React Native Themes](http://www.startreact.com/).*
+## RN Boilerplate Golden Owl
 
 # Content
 
@@ -39,23 +21,6 @@ React Native helps in making the development work easier and allowing the develo
 **The hymn of React Native — learn once, write anywhere.**
 
 React Native takes charge of the view controllers and programatically generates native views using javascript. This means that you can have all the speed and power of a native application, with the ease of development that comes with React.
-
-
-### [NativeBase](http://nativebase.io/)
-
-NativeBase is a free and open source framework from the team of [StrapMobile](http://strapmobile.com/).
-
-This framework enable developers to build high-quality mobile apps using React Native iOS and Android apps with a fusion of ES6. NativeBase builds a layer on top of React Native that provides you with basic set of components for mobile application development.
-
-The applications stack of components is built using native UI components and because of that, there are no compromises with the User Experience of the applications.  NativeBase is targeted specially on the look and feel, and UI interplay of your app.
-
-NativeBase without a doubt fits in well with mobile applications which cut downs one huge part of your app The Front end.
-
--	*[On GitHub](https://github.com/GeekyAnts/NativeBase)*
--	*[NativeBase Features](http://nativebase.io/documentation)*
--	*[NativeBase Components](http://nativebase.io/components)*
--	*[Docs](http://nativebase.io/documentation)*
--	*[Blogs](https://blog.nativebase.io/)*
 
 
 ### [Redux](http://redux.js.org)
@@ -96,15 +61,7 @@ Performance wise, Easy Grid is noteworthy and works as fine as Flexbox, not much
 
 [More Examples](http://nativebase.io/components#layout) . . .
 
-
-### [React Native-NativeBase Seed](https://github.com/GeekyAnts/react-native-native-base-seed)
-
-React Native-NativeBase Seed is a basic configuration that every React Native app must have; brought to you by [StrapMobile](http://strapmobile.com/).
-
-This is open source and perfect for any newbie to start with React Native.
-
-This is a [React Native](https://github.com/facebook/react-native) Project with [NativeBase](http://nativebase.io/documentation), [Navigation Experimental](https://facebook.github.io/react-native/docs/navigation.html#navigationexperimental), [Redux](http://redux.js.org/), [CodePush](https://github.com/Microsoft/react-native-code-push), Router, Push Notification and other basic must-have libraries.
-
+### [Shoutem UI](http://shoutem.github.io/docs/ui-toolkit/introduction)
 
 ## Get Started
 
