@@ -2,8 +2,10 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 
-import App from './components/App';
 import configureStore from './lib/configureStore';
+
+import AppReducer from './reducers';
+import AppWithNavigationState from './navigators/AppNavigator';
 
 function setup():React.Component {
   class Root extends Component {
@@ -19,7 +21,7 @@ function setup():React.Component {
     render() {
       return (
         <Provider store={this.state.store}>
-          <App />
+          <AppWithNavigationState />
         </Provider>
       );
     }

@@ -1,6 +1,6 @@
 {
   "parser": "babel-eslint",
-  "extends": ["eslint:recommended", "plugin:react/recommended", "airbnb"],
+  "extends": ["eslint:recommended", "airbnb"],
   "installedESLint": true,
   "parserOptions": {
     "ecmaFeatures": {
@@ -30,7 +30,8 @@
       "SwitchCase": 1
     }],
     "no-param-reassign": 0,
-    "import/no-unresolved": [2, { "ignore": ["^[~]"] }]
+    "import/no-unresolved": [2, { "ignore": ["^[~]"] }],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
   },
   "plugins": [
     "react",

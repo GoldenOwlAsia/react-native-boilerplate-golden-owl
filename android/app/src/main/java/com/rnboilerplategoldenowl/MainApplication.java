@@ -3,6 +3,7 @@ package com.rnboilerplategoldenowl;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import io.fullstack.firestack.FirestackPackage;
 import com.microsoft.codepush.react.CodePush;
 import com.reactnative.photoview.PhotoViewPackage;
 import cl.json.RNSharePackage;
@@ -34,6 +35,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new FirestackPackage(),
             new CodePush(null, getApplicationContext(), BuildConfig.DEBUG),
             new PhotoViewPackage(),
             new RNSharePackage(),
