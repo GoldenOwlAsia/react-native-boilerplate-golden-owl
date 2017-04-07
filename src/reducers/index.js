@@ -20,6 +20,8 @@ const initialAuthState = { isLoggedIn: false };
 
 function nav(state = initialNavState, action) {
   switch (action.type) {
+    case 'Map':
+      return AppNavigator.router.getStateForAction(NavigationActions.navigate({ routeName: 'Map' }), state);
     case 'Login':
       return AppNavigator.router.getStateForAction(NavigationActions.back(), state);
     case 'Logout':

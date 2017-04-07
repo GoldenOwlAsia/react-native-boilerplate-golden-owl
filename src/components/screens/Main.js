@@ -1,5 +1,9 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import React, { PropTypes } from 'react';
+import {
+  StyleSheet,
+  Button,
+  View,
+} from 'react-native';
 
 import LoginStatusMessage from '../views/LoginStatusMessage';
 import AuthButton from '../shared/AuthButton';
@@ -13,12 +17,18 @@ const styles = StyleSheet.create({
   },
 });
 
-const MainScreen = () => (
+const MainScreen = ({ navigation }) => (
   <View style={styles.container}>
     <LoginStatusMessage />
     <AuthButton />
+    <Button title="Map" onPress={() => navigation.dispatch({ type: 'Map' })}/>
   </View>
 );
+
+MainScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
+};
+
 MainScreen.navigationOptions = {
   title: 'Home Screen',
 };
