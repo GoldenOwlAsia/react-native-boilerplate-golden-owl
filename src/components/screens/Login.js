@@ -1,49 +1,46 @@
-import React, { Component } from 'react';
-import { Button, StatusBar } from 'react-native';
-import { BaseScreen } from '../base/';
-import { Screen, View, Text, NavigationBar, Title, Icon, DropDownMenu, Divider } from '@shoutem/ui';
+import React, { PropTypes } from 'react';
+import {
+  Button,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 
-class Login extends BaseScreen {
-  static navigationOptions = {
-    title: 'Login',
-    header: ({ state, setParams }) => {
-      // The navigation prop has functions like setParams, goBack, and navigate.
-      let left = (
-        <Button
-          title="Done"
-          onPress={() => console.log('button press')}
-        />
-      );
-      let  right = (
-        <Button
-          title="Done"
-          onPress={() => console.log('button press')}
-        />        
-      );
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+});
 
-      return { left, right };
-    },
-    drawer: () => ({
-      label: 'Login',
-      icon: ({ tintColor }) => (
-        null
-      ),
-    }),
-  }
+const LoginScreen = ({ navigation }) => (
+  <View style={styles.container}>
+    <Text style={styles.welcome}>
+      Screen A
+    </Text>
+    <Text style={styles.instructions}>
+      This is great
+    </Text>
+    <Button
+      onPress={() => navigation.dispatch({ type: 'Login' })}
+      title="Log in"
+    />
+  </View>
+);
 
-  render() {
-    return (
-      <Screen style={{flex: 1}}>
-        <View style={{height: 300}}>
-           <Text>Hello World</Text>
-           <Button
-              onPress={() => this.props.navigation.navigate('Notifications')}
-              title="Go to notifications"
-            />
-        </View>
-      </Screen>
-    );
-  }
-}
+LoginScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
+};
 
-export default Login;
+LoginScreen.navigationOptions = {
+  title: 'Log In',
+};
+
+export default LoginScreen;

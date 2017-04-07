@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { addNavigationHelpers, StackNavigator } from 'react-navigation';
 
 import LoginScreen from '../components/screens/Login';
-import MainScreen from '../components/MainScreen';
-import ProfileScreen from '../components/ProfileScreen';
+import MainScreen from '../components/screens/Main';
+import ProfileScreen from '../components/screens/Profile';
 
 export const AppNavigator = StackNavigator({
   Login: { screen: LoginScreen },
