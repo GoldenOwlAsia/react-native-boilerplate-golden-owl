@@ -1,7 +1,18 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-
+import { StyleSheet, View, DeviceEventEmitter, NativeModules } from 'react-native';
+import { BaseScreen } from '../base/';
 import MapView from 'react-native-maps';
+
+import RNLocation from 'react-native-gps';
+
+RNLocation.requestWhenInUseAuthorization();
+
+const LATITUDE = 10.7626959;
+const LONGITUDE = 106.6943237;
+const LATITUDE_DELTA = 0.0922;
+const LONGITUDE_DELTA = 0.0421;
+
+const CAR_ICON = require('../../../images/car.png');
 
 const styles = StyleSheet.create({
   container: {
@@ -19,19 +30,61 @@ const styles = StyleSheet.create({
   }
 });
 
-const Map = () => (
-  <View style={styles.container}>
-    <MapView
-      style={styles.map}
-      initialRegion={{
-        latitude: 37.78825,
-        longitude: -122.4324,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
-      }}
-    />
-  </View>
-);
+class Map extends BaseScreen {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      region: null,
+      marker: {
+        latitude: LATITUDE,
+        longitude: LONGITUDE,
+      },
+    }
+    // };
+
+    this.onRegionChange = this.onRegionChange.bind(this);
+  }
+
+  componentDidMount() {
+    RNLocation.startUpdatingLocation();
+    DeviceEventEmitter.addListener(
+        'locationUpdated',
+        (data) => {
+          console.log('locationUpdated', data);
+          const { latitude, longitude } = data;
+          const region = Object.assign({latitudeDelta: LATITUDE_DELTA, longitudeDelta: LONGITUDE_DELTA}, {latitude, longitude});
+          const marker = Object.assign({}, this.state.marker, {latitude, longitude});
+          this.setState({marker, region});
+        }
+    );
+  }
+
+  componentWillUnmount() {
+    DeviceEventEmitter.removeAllListeners('locationUpdated');
+  }
+
+  onRegionChange(region) {
+    this.region.setValue(region);
+  }
+
+  render() {
+    const { region, marker } = this.state;
+    return (<View style={styles.container}>
+      <MapView.Animated
+        style={styles.map}
+        region={region}
+      >
+        <MapView.Marker.Animated
+          coordinate={marker}
+          title={'My car'}
+          description={'Here is my car'}
+          image={CAR_ICON}
+        />
+      </MapView.Animated>
+    </View>);
+  }
+};
 Map.navigationOptions = {
   title: 'Map Screen',
 };
