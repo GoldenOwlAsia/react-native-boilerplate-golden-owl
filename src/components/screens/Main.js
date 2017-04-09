@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 
 import LoginStatusMessage from '../views/LoginStatusMessage';
-import AuthButton from '../shared/AuthButton';
+import { AuthButton } from '../shared';
 
 const styles = StyleSheet.create({
   container: {

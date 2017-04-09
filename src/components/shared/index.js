@@ -1,7 +1,11 @@
-import Drawer from './Drawer';
-import SideBar from './SideBar';
+import DrawerIcon from './DrawerIcon';
+import DrawerItem from './DrawerItem';
+import AuthButton from './AuthButton';
+import BackgroundVideo from './BackgroundVideo';
 
 export {
-  Drawer,
-  SideBar,
+  DrawerIcon,
+  DrawerItem,
+  AuthButton,
+  BackgroundVideo,
 }

@@ -46,6 +46,10 @@ class Map extends BaseScreen {
     this.onRegionChange = this.onRegionChange.bind(this);
   }
 
+  componentWillMount() {
+    DeviceEventEmitter.removeAllListeners('locationUpdated');
+  }
+
   componentDidMount() {
     RNLocation.startUpdatingLocation();
     DeviceEventEmitter.addListener(

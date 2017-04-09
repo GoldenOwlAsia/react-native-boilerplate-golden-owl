@@ -15,7 +15,7 @@ import MainScreen from '../components/screens/Main';
 import ProfileScreen from '../components/screens/Profile';
 import MapScreen from '../components/screens/Map';
 
-import DrawerItem from '../components/shared/DrawerItem';
+import { DrawerItem } from '../components/shared';
 
 export const ProfileStack = StackNavigator({
   Profile: { screen: ProfileScreen },

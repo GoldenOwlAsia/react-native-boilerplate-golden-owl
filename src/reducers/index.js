@@ -1,7 +1,5 @@
 import { combineReducers } from 'redux';
 
-
-import drawer from './drawer';
 import user from './user';
 
 import { NavigationActions } from 'react-navigation';
@@ -50,7 +48,6 @@ function auth(state = initialAuthState, action) {
 }
 
 const AppReducer = combineReducers({
-  drawer,
   user,
   nav,
   auth,
