@@ -6,26 +6,33 @@ import user from './user';
 
 import { NavigationActions } from 'react-navigation';
 
-import { AppNavigator } from '../navigators/AppNavigator';
+import { AppNavigator, LoggedInStack } from '../navigators/AppNavigator';
 
 const initialNavState = {
-  index: 1,
+  index: 0,
   routes: [
-    { key: 'InitA', routeName: 'Main' },
-    { key: 'InitB', routeName: 'Login' },
+    { key: 'login', routeName: 'Login' },
   ],
 };
 
 const initialAuthState = { isLoggedIn: false };
 
 function nav(state = initialNavState, action) {
+  console.log('active type', action)
   switch (action.type) {
     case 'Map':
       return AppNavigator.router.getStateForAction(NavigationActions.navigate({ routeName: 'Map' }), state);
     case 'Login':
-      return AppNavigator.router.getStateForAction(NavigationActions.back(), state);
+      return LoggedInStack.router.getStateForAction(NavigationActions.navigate({ routeName: 'Profile'}), state);
     case 'Logout':
       return AppNavigator.router.getStateForAction(NavigationActions.navigate({ routeName: 'Login' }), state);
+    case 'Main':
+      return AppNavigator.router.getStateForAction(NavigationActions.reset({
+          index: 0,
+          actions: [
+            NavigationActions.navigate({ routeName: 'Main'})
+          ],
+        }), state);
     default:
       return AppNavigator.router.getStateForAction(action, state);
   }
