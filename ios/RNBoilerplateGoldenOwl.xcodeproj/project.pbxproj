@@ -42,6 +42,7 @@
 		5DFFF33C54B94F0295FA92C1 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49EF7CB2AF0F44689F149808 /* Foundation.ttf */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		6230EF8F9E4343788FC91A82 /* Andale Mono.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15F5829BF28F4DBCBF7DEDD1 /* Andale Mono.ttf */; };
+		697AFDA4B90249F08A2299FE /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBDDC41CEF1405E93AFEB09 /* libRCTVideo.a */; };
 		70A7AE3BE339422996A7AE66 /* Rubik-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22602BB658A7413991B341F1 /* Rubik-BoldItalic.ttf */; };
 		7423C3BFCD764109906C6190 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B139BE0696764A4F86987D0F /* libAirMaps.a */; };
 		744D8D45D55B4E058370FD0D /* rubicon-icon-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 570B9C53F26D4E5081EFCEA7 /* rubicon-icon-font.ttf */; };
@@ -278,6 +279,13 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNLocation;
 		};
+		D01802751E991A840056473C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F5B9465AF36400EB9F354A1 /* RCTVideo.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RCTVideo;
+		};
 		D05235861E7ADFED00C3AF58 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0F2D608E74C14E649BDDF81E /* RNVectorIcons.xcodeproj */;
@@ -340,6 +348,7 @@
 		22602BB658A7413991B341F1 /* Rubik-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rubik-BoldItalic.ttf"; path = "../node_modules/native-base/Fonts/Rubik-BoldItalic.ttf"; sourceTree = "<group>"; };
 		232409DD50CA443A9EACACBF /* Times New Roman.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Times New Roman.ttf"; path = "../node_modules/native-base/Fonts/Times New Roman.ttf"; sourceTree = "<group>"; };
 		25DFA01C111F04981F7B45C5 /* Pods-RNBoilerplateGoldenOwl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNBoilerplateGoldenOwl.release.xcconfig"; path = "Pods/Target Support Files/Pods-RNBoilerplateGoldenOwl/Pods-RNBoilerplateGoldenOwl.release.xcconfig"; sourceTree = "<group>"; };
+		2F5B9465AF36400EB9F354A1 /* RCTVideo.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTVideo.xcodeproj; path = "../node_modules/react-native-video/ios/RCTVideo.xcodeproj"; sourceTree = "<group>"; };
 		30785E0F8FFE4810BE3DC2EC /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/native-base/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		3561C88DFF9B4236B0639C97 /* Rubik-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rubik-Italic.ttf"; path = "../node_modules/@shoutem/ui/fonts/Rubik-Italic.ttf"; sourceTree = "<group>"; };
 		37F93759FAD743279AF0B0E8 /* Rubik-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rubik-MediumItalic.ttf"; path = "../node_modules/native-base/Fonts/Rubik-MediumItalic.ttf"; sourceTree = "<group>"; };
@@ -384,6 +393,7 @@
 		C16B2E1D820C44FCAA399544 /* Comic Sans MS.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Comic Sans MS.ttf"; path = "../node_modules/native-base/Fonts/Comic Sans MS.ttf"; sourceTree = "<group>"; };
 		C2C9017772A44EDEBEB4A249 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		C6B117E9493849DB9105B5DA /* Roboto_medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto_medium.ttf; path = "../node_modules/native-base/Fonts/Roboto_medium.ttf"; sourceTree = "<group>"; };
+		CFBDDC41CEF1405E93AFEB09 /* libRCTVideo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTVideo.a; sourceTree = "<group>"; };
 		D01801FF1E9808420056473C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D01802011E980B3F0056473C /* RNLocation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNLocation.xcodeproj; path = "../node_modules/react-native-gps/RNLocation.xcodeproj"; sourceTree = "<group>"; };
 		D04A0BFE98904092863267DD /* Rubik-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rubik-BoldItalic.ttf"; path = "../node_modules/@shoutem/ui/fonts/Rubik-BoldItalic.ttf"; sourceTree = "<group>"; };
@@ -429,6 +439,7 @@
 				7423C3BFCD764109906C6190 /* libAirMaps.a in Frameworks */,
 				CB1F627661E24EBCCBBCF30D /* libPods-RNBoilerplateGoldenOwl.a in Frameworks */,
 				C2D646859419402691FD516E /* libRNLocation.a in Frameworks */,
+				697AFDA4B90249F08A2299FE /* libRCTVideo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +600,7 @@
 				E14BCEAC3A744375A01E5ABB /* RNShare.xcodeproj */,
 				A1EBF323FFCE43EA972000FF /* CodePush.xcodeproj */,
 				76AEBB507662430BBBC89CD3 /* AirMaps.xcodeproj */,
+				2F5B9465AF36400EB9F354A1 /* RCTVideo.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -699,6 +711,14 @@
 			isa = PBXGroup;
 			children = (
 				D01802061E980B400056473C /* libRNLocation.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D018025F1E991A840056473C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D01802761E991A840056473C /* libRCTVideo.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -842,6 +862,10 @@
 				{
 					ProductGroup = 00C302E01ABCB9EE00DB3ED1 /* Products */;
 					ProjectRef = 00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */;
+				},
+				{
+					ProductGroup = D018025F1E991A840056473C /* Products */;
+					ProjectRef = 2F5B9465AF36400EB9F354A1 /* RCTVideo.xcodeproj */;
 				},
 				{
 					ProductGroup = 139FDEE71B06529A00C62182 /* Products */;
@@ -1061,6 +1085,13 @@
 			remoteRef = D01802051E980B400056473C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		D01802761E991A840056473C /* libRCTVideo.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTVideo.a;
+			remoteRef = D01802751E991A840056473C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		D05235871E7ADFED00C3AF58 /* libRNVectorIcons.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1265,6 +1296,8 @@
 					"\"$(SRCROOT)/RNBoilerplateGoldenOwl\"",
 					"\"$(SRCROOT)/RNBoilerplateGoldenOwl\"",
 					"\"$(SRCROOT)/RNBoilerplateGoldenOwl\"",
+					"\"$(SRCROOT)/RNBoilerplateGoldenOwl\"",
+					"\"$(SRCROOT)/RNBoilerplateGoldenOwl\"",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1290,6 +1323,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/RNBoilerplateGoldenOwl\"",
+					"\"$(SRCROOT)/RNBoilerplateGoldenOwl\"",
 					"\"$(SRCROOT)/RNBoilerplateGoldenOwl\"",
 					"\"$(SRCROOT)/RNBoilerplateGoldenOwl\"",
 					"\"$(SRCROOT)/RNBoilerplateGoldenOwl\"",
