@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const ProfileScreen = ({navigation}) => (
+const ProfileScreen = ({ navigation }) => (
   <View style={styles.container}>
     <Text style={styles.welcome}>
       Profile Screen
@@ -37,24 +37,24 @@ ProfileScreen.propTypes = {
 ProfileScreen.navigationOptions = {
   title: 'Profile',
   header: (navigation) => {
-      const left = (
-        <TouchableOpacity
-          onPress={() => navigation.navigate('DrawerOpen') }
-        >
-          <Icon
-            name='md-menu'
-            style={{marginLeft: 10}}
-            size={30}
-          />
-        </TouchableOpacity>
+    const left = (
+      <TouchableOpacity
+        onPress={() => navigation.navigate('DrawerOpen')}
+      >
+        <Icon
+          name="md-menu"
+          style={{ marginLeft: 10 }}
+          size={30}
+        />
+      </TouchableOpacity>
       );
 
-      return { left };
-    },
+    return { left };
+  },
   drawer: () => ({
     label: 'Profile',
     icon: ({ tintColor }) => (
-      <DrawerIcon name='md-person'/>
+      <DrawerIcon name="md-person" />
     ),
   }),
 };

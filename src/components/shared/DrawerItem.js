@@ -9,6 +9,12 @@ import {
 } from 'react-native';
 import DrawerIcon from './DrawerIcon';
 
+import { connect } from 'react-redux';
+
+import {
+  unsetUser,
+} from '../../actions';
+
 const styles = StyleSheet.create({
   item: {
     flexDirection: 'row',
@@ -32,23 +38,39 @@ const styles = StyleSheet.create({
   },
 });
 
-const DrawerItem = ({navigation}) => (
-  <TouchableOpacity
-    key={100}
-    onPress={() => {
-      navigation.dispatch({type: 'Logout'});
-    }}
-    delayPressIn={0}
-  >
-    <View style={[styles.item]}>
-      <View style={[styles.icon]}>
-        <DrawerIcon name='md-log-out'/>
-      </View>
-      <Text style={[styles.label]}>
-        Logout
-      </Text>
-    </View>
-  </TouchableOpacity>
-);
+class DrawerItem extends React.Component {
 
-export default DrawerItem;
+  render() {
+    return (
+      <TouchableOpacity
+        key={100}
+        onPress={() => {
+          this.props.unsetUser().then(() => {
+            this.props.navigation.dispatch({ type: 'Logout' });
+          });
+        }}
+        delayPressIn={0}
+      >
+        <View style={[styles.item]}>
+          <View style={[styles.icon]}>
+            <DrawerIcon name="md-log-out" />
+          </View>
+          <Text style={[styles.label]}>
+            Logout
+          </Text>
+        </View>
+      </TouchableOpacity>
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+  isLoggedIn: state.auth.isLoggedIn,
+  user: state.user,
+});
+
+const mapDispatchToProps = dispatch => ({
+  unsetUser: () => dispatch(unsetUser()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(DrawerItem);

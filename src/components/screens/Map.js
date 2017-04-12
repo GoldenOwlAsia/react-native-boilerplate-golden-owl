@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     right: 0,
     left: 0,
     bottom: 0,
-  }
+  },
 });
 
 class Map extends BaseScreen {
@@ -40,7 +40,7 @@ class Map extends BaseScreen {
         latitude: LATITUDE,
         longitude: LONGITUDE,
       },
-    }
+    };
     // };
 
     this.onRegionChange = this.onRegionChange.bind(this);
@@ -57,9 +57,9 @@ class Map extends BaseScreen {
         (data) => {
           console.log('locationUpdated', data);
           const { latitude, longitude } = data;
-          const region = Object.assign({latitudeDelta: LATITUDE_DELTA, longitudeDelta: LONGITUDE_DELTA}, {latitude, longitude});
-          const marker = Object.assign({}, this.state.marker, {latitude, longitude});
-          this.setState({marker, region});
+          const region = Object.assign({ latitudeDelta: LATITUDE_DELTA, longitudeDelta: LONGITUDE_DELTA }, { latitude, longitude });
+          const marker = Object.assign({}, this.state.marker, { latitude, longitude });
+          this.setState({ marker, region });
         }
     );
   }
@@ -88,7 +88,7 @@ class Map extends BaseScreen {
       </MapView.Animated>
     </View>);
   }
-};
+}
 Map.navigationOptions = {
   title: 'Map Screen',
 };

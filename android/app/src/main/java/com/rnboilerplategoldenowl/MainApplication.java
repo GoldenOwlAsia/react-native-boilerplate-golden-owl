@@ -3,6 +3,7 @@ package com.rnboilerplategoldenowl;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import co.apptailor.googlesignin.RNGoogleSigninPackage;
 import com.brentvatne.react.ReactVideoPackage;
 import io.fullstack.firestack.FirestackPackage;
 import com.microsoft.codepush.react.CodePush;
@@ -36,6 +37,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNGoogleSigninPackage(),
             new ReactVideoPackage(),
             new FirestackPackage(),
             new CodePush(null, getApplicationContext(), BuildConfig.DEBUG),

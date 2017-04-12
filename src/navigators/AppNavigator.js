@@ -13,6 +13,8 @@ import { addNavigationHelpers, StackNavigator, DrawerNavigator, DrawerView } fro
 import LoginScreen from '../components/screens/Login';
 import MainScreen from '../components/screens/Main';
 import ProfileScreen from '../components/screens/Profile';
+import PlaylistScreen from '../components/screens/Playlist';
+import VideosScreen from '../components/screens/Videos';
 import MapScreen from '../components/screens/Map';
 
 import { DrawerItem } from '../components/shared';
@@ -25,15 +27,27 @@ export const ProfileStack = StackNavigator({
   headerMode: 'float',
 });
 
+export const PlaylistStack = StackNavigator({
+  Playlist: { screen: PlaylistScreen },
+  Videos: { screen: VideosScreen },
+}, {
+  navigationOptions: {
+    style: { backgroundColor: '#FFF' },
+  },
+  headerMode: 'float',
+});
+
 export const LoggedInStack = DrawerNavigator({
+  Playlist: { screen: PlaylistStack },
+  Map: { screen: MapScreen },
   Profile: { screen: ProfileStack },
 }, {
   contentComponent: props => (
     <ScrollView>
       <DrawerView.Items {...props} />
-      <DrawerItem navigation={props.navigation}/>
+      <DrawerItem navigation={props.navigation} />
     </ScrollView>
-  )
+  ),
 });
 
 export const AppNavigator = StackNavigator({
@@ -44,7 +58,6 @@ export const AppNavigator = StackNavigator({
 });
 
 const AppWithNavigationState = (params) => {
-  console.log('AppWithNavigationState', params);
   const { dispatch, nav } = params;
   return (<AppNavigator navigation={addNavigationHelpers({ dispatch, state: nav })} />);
 };
@@ -54,11 +67,10 @@ AppWithNavigationState.propTypes = {
   nav: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => {
-  console.log('state nav', state.nav);
+const mapStateToProps = (state) => {
   return {
     nav: state.nav,
   };
-}
+};
 
 export default connect(mapStateToProps)(AppWithNavigationState);

@@ -21,7 +21,7 @@ const MainScreen = ({ navigation }) => (
   <View style={styles.container}>
     <LoginStatusMessage />
     <AuthButton />
-    <Button title="Map" onPress={() => navigation.dispatch({ type: 'Map' })}/>
+    <Button title="Map" onPress={() => navigation.dispatch({ type: 'Map' })} />
   </View>
 );
 

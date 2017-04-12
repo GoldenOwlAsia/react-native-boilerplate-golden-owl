@@ -16,21 +16,23 @@ const initialNavState = {
 const initialAuthState = { isLoggedIn: false };
 
 function nav(state = initialNavState, action) {
-  console.log('active type', action)
   switch (action.type) {
+    case 'Videos':
+      console.log('action', action);
+      return AppNavigator.router.getStateForAction(NavigationActions.navigate({ routeName: 'Videos', params: action.payload }), state);
     case 'Map':
       return AppNavigator.router.getStateForAction(NavigationActions.navigate({ routeName: 'Map' }), state);
     case 'Login':
-      return LoggedInStack.router.getStateForAction(NavigationActions.navigate({ routeName: 'Profile'}), state);
+      return LoggedInStack.router.getStateForAction(NavigationActions.navigate({ routeName: 'Profile' }), state);
     case 'Logout':
       return AppNavigator.router.getStateForAction(NavigationActions.navigate({ routeName: 'Login' }), state);
     case 'Main':
       return AppNavigator.router.getStateForAction(NavigationActions.reset({
-          index: 0,
-          actions: [
-            NavigationActions.navigate({ routeName: 'Main'})
-          ],
-        }), state);
+        index: 0,
+        actions: [
+          NavigationActions.navigate({ routeName: 'Main' }),
+        ],
+      }), state);
     default:
       return AppNavigator.router.getStateForAction(action, state);
   }

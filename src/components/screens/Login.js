@@ -6,6 +6,7 @@ import {
   View,
 } from 'react-native';
 import BackgroundVideo from '../shared/BackgroundVideo';
+import { AuthButton } from '../shared';
 
 const styles = StyleSheet.create({
   container: {
@@ -30,17 +31,8 @@ const styles = StyleSheet.create({
 
 const LoginScreen = ({ navigation }) => (
   <View style={styles.container}>
-    <BackgroundVideo style={styles.backgroundVideo}/>
-    <Text style={styles.welcome}>
-      Screen A
-    </Text>
-    <Text style={styles.instructions}>
-      This is great
-    </Text>
-    <Button
-      onPress={() => navigation.dispatch({ type: 'Main' })}
-      title="Log in"
-    />
+    <BackgroundVideo style={styles.backgroundVideo} />
+    <AuthButton navigation={navigation} />
   </View>
 );
 

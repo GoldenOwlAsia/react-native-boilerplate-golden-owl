@@ -8,7 +8,7 @@ const VIDEO = require('../../../images/welcome.mp4');
 const BackgroundVideo = ({ style }) => (
   <Video
     repeat
-    resizeMode='cover'
+    resizeMode="cover"
     source={VIDEO}
     style={style}
   />
