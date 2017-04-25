@@ -8,4 +8,4 @@ export {
   DrawerItem,
   AuthButton,
   BackgroundVideo,
-}
+};

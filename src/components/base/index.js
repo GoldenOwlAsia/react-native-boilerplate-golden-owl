@@ -6,4 +6,4 @@ export {
   BaseComponent,
   BaseView,
   BaseScreen,
-}
+};
