@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 
 import user from './user';
+import youtube from './youtube';
 
 import { NavigationActions } from 'react-navigation';
 
@@ -51,6 +52,7 @@ function auth(state = initialAuthState, action) {
 
 const AppReducer = combineReducers({
   user,
+  youtube,
   nav,
   auth,
 });

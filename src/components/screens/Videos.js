@@ -4,8 +4,6 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
-import DrawerIcon from '../shared/DrawerIcon';
 import {
   ListView,
   Image,
@@ -19,8 +17,11 @@ import {
   Caption,
   GridRow,
 } from '@shoutem/ui';
-
 import _ from 'lodash';
+import { connect } from 'react-redux';
+import DrawerIcon from '../shared/DrawerIcon';
+import * as YoutubeAction from '../../actions/youtube';
+
 
 const styles = StyleSheet.create({
   container: {
@@ -39,20 +40,22 @@ class VideosScreen extends React.Component {
     };
   }
   componentWillMount() {
-    console.log('VideosScreen componentWillMount');
     const { state } = this.props.navigation;
-    console.log('state', state);
-    fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${state.params.playlistId}&maxResults=50`, {
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${this.props.user.data.accessToken}`,
-      },
-    })
-    .then(response => response.json())
-    .then((data) => {
-      console.log('videos response', data);
-      this.setState({ videos: data.items.map(i => Object.assign({}, i.snippet, { id: i.id })) });
+    const paramsReq = {
+      part: 'snippet',
+      playlistId: state.params.playlistId,
+      maxResults: 50,
+    };
+    this.props.fetchPlaylistsItemDetail(paramsReq, this.props.user.data.accessToken).then(() => {
+      if (this.props.youtube.error) {
+        alert(this.props.youtube.error);
+      } else {
+        this.setState({
+          videos: this.props.youtube.playlistsItemDetail.items.map(i => Object.assign({}, i.snippet, { id: i.id })),
+        });
+      }
+    }).catch((error) => {
+       alert('error', error);
     });
   }
 
@@ -117,6 +120,9 @@ class VideosScreen extends React.Component {
 VideosScreen.propTypes = {
   navigation: PropTypes.object.isRequired,
   playlistId: PropTypes.string,
+  fetchPlaylistsItemDetail: PropTypes.func,
+  youtube: PropTypes.object,
+  user: PropTypes.object,
 };
 
 VideosScreen.navigationOptions = {
@@ -129,14 +135,14 @@ VideosScreen.navigationOptions = {
   }),
 };
 
-import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
   user: state.user,
+  youtube: state.youtube,
 });
 
-const mapDispatchToProps = dispatch => ({
-});
-
+const mapDispatchToProps = {
+  fetchPlaylistsItemDetail: YoutubeAction.fetchPlaylistsItemDetail,
+};
 export default connect(mapStateToProps, mapDispatchToProps)(VideosScreen);
 
