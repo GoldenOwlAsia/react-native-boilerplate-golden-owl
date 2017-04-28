@@ -40,18 +40,18 @@ class PlaylistScreen extends React.Component {
   }
   componentWillMount() {
     console.log('Playlists comopnentWillMount');
-    fetch('https://www.googleapis.com/youtube/v3/playlists?part=snippet&channelId=UCY14-R0pMrQzLne7lbTqRvA&maxResults=50', {
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${this.props.user.data.accessToken}`,
-      },
-    })
-    .then(response => response.json())
-    .then((data) => {
-      console.log('profile response', data);
-      this.setState({ playlists: data.items.map(i => Object.assign({}, i.snippet, { id: i.id })) });
-    });
+    // fetch('https://www.googleapis.com/youtube/v3/playlists?part=snippet&channelId=UCY14-R0pMrQzLne7lbTqRvA&maxResults=50', {
+    //   headers: {
+    //     Accept: 'application/json',
+    //     'Content-Type': 'application/json',
+    //     Authorization: `Bearer ${this.props.user.data.accessToken}`,
+    //   },
+    // })
+    // .then(response => response.json())
+    // .then((data) => {
+    //   console.log('profile response', data);
+    //   this.setState({ playlists: data.items.map(i => Object.assign({}, i.snippet, { id: i.id })) });
+    // });
   }
 
   handlePlaylistPress(playlist) {

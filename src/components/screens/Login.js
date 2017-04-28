@@ -1,12 +1,16 @@
 import React, { PropTypes } from 'react';
 import {
-  Button,
   StyleSheet,
-  Text,
   View,
+  Image,
+  TouchableOpacity,
 } from 'react-native';
 import BackgroundVideo from '../shared/BackgroundVideo';
-import { AuthButton } from '../shared';
+
+const fbIcon = require('../../../images/facebook-login.png');
+const ggIcon = require('../../../images/google-login.png');
+const FBLoginManager = require('react-native-facebook-login');
+
 
 const styles = StyleSheet.create({
   container: {
@@ -27,14 +31,68 @@ const styles = StyleSheet.create({
     bottom: 0,
     right: 0,
   },
+  imgButton: {
+    width: 150,
+    height: 50,
+  },
 });
 
-const LoginScreen = ({ navigation }) => (
-  <View style={styles.container}>
-    <BackgroundVideo style={styles.backgroundVideo} />
-    <AuthButton navigation={navigation} />
-  </View>
-);
+class LoginScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: null,
+    };
+  }
+
+  getCredentials() {
+    FBLoginManager.getCredentials((error, data) => {
+      if (!error) {
+        console.log('Credentials', data);
+      }
+    });
+  }
+
+  handleLogin() {
+    console.log(FBLoginManager);
+    FBLoginManager.setLoginBehavior(FBLoginManager.LoginBehaviors.Web); // defaults to Native
+    FBLoginManager.loginWithPermissions(['email', 'user_friends'], (error, data) => {
+      if (!error) {
+        this.setState({
+          user: data,
+        });
+        this.props.navigation.dispatch({ type: 'Main' });
+      } else {
+        alert('Cannt login at this time');
+      }
+    });
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <BackgroundVideo style={styles.backgroundVideo} />
+        <TouchableOpacity
+          onPress={() => this.getCredentials()}
+        >
+          <Image
+            style={styles.imgButton}
+            resizeMode="contain"
+            source={ggIcon}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => this.handleLogin()}
+        >
+          <Image
+            style={styles.imgButton}
+            resizeMode="contain"
+            source={fbIcon} />
+        </TouchableOpacity>
+      </View>
+    );
+  }
+}
 
 LoginScreen.propTypes = {
   navigation: PropTypes.object.isRequired,
