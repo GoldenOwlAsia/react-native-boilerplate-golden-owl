@@ -9,6 +9,13 @@ export type Action =
     | { type: 'CLOSE_DRAWER'}
     | { type: 'SET_USER', name: string}
     | { type: 'SET_LIST', list: string}
+    | { type: 'PLAYLIST_FETCH_REQUESTED' }
+    | { type: 'PLAYLIST_FETCH_RESPONDED', result: Array<Object> }
+    | { type: 'PLAYLIST_FETCH_ERROR', error: string }
+    | { type: 'PLAYLIST_DETAIL_FETCH_REQUESTED' }
+    | { type: 'PLAYLIST_DETAIL_FETCH_RESPONDED', result: Array<Object> }
+    | { type: 'PLAYLIST_DETAIL_FETCH_ERROR', error: string }
+
 
 export type Dispatch = (action:Action | Array<Action>) => any;
 export type GetState = () => Object;

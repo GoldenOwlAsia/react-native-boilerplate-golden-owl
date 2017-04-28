@@ -4,8 +4,10 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/Ionicons';
 import DrawerIcon from '../shared/DrawerIcon';
+import * as YoutubeAction from '../../actions/youtube';
 import {
   ListView,
   Image,
@@ -39,18 +41,21 @@ class PlaylistScreen extends React.Component {
     };
   }
   componentWillMount() {
-    console.log('Playlists comopnentWillMount');
-    fetch('https://www.googleapis.com/youtube/v3/playlists?part=snippet&channelId=UCY14-R0pMrQzLne7lbTqRvA&maxResults=50', {
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${this.props.user.data.accessToken}`,
-      },
-    })
-    .then(response => response.json())
-    .then((data) => {
-      console.log('profile response', data);
-      this.setState({ playlists: data.items.map(i => Object.assign({}, i.snippet, { id: i.id })) });
+    const paramsReq = { part: 'snippet',
+      channelId: 'UCY14-R0pMrQzLne7lbTqRvA',
+      maxResults: 50,
+    };
+    console.log(this.props);
+    this.props.fetchPlaylists(paramsReq, this.props.user.data.accessToken).then(() => {
+      if (this.props.youtube.error) {
+        console.log('errors');
+      } else {
+        this.setState({
+          playlists: this.props.youtube.playlists.items.map(i => Object.assign({}, i.snippet, { id: i.id })),
+        });
+      }
+    }).catch((error) => {
+      console.log('error', error);
     });
   }
 
@@ -90,6 +95,9 @@ class PlaylistScreen extends React.Component {
 
 PlaylistScreen.propTypes = {
   navigation: PropTypes.object.isRequired,
+  user: PropTypes.object,
+  youtube: PropTypes.object,
+  fetchPlaylists: PropTypes.func,
 };
 
 PlaylistScreen.navigationOptions = {
@@ -117,14 +125,14 @@ PlaylistScreen.navigationOptions = {
   }),
 };
 
-import { connect } from 'react-redux';
-
 const mapStateToProps = state => ({
   user: state.user,
+  youtube: state.youtube,
 });
 
-const mapDispatchToProps = dispatch => ({
-});
+const mapDispatchToProps = {
+  fetchPlaylists: YoutubeAction.fetchPlaylists,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaylistScreen);
 
